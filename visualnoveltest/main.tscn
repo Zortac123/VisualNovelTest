@@ -1,0 +1,56 @@
+[gd_scene load_steps=5 format=3 uid="uid://gyi0hai2my3y"]
+
+[ext_resource type="Script" path="res://Panel.gd" id="1_wuoom"]
+[ext_resource type="PackedScene" uid="uid://b36fept7dsjav" path="res://clue.tscn" id="2_6omdc"]
+[ext_resource type="Texture2D" uid="uid://dryao4qmqw1nt" path="res://clueimages/knife.png" id="3_7ub54"]
+[ext_resource type="Texture2D" uid="uid://bkw6xd3ikphm" path="res://icon.svg" id="4_4i8nu"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchor_right = 0.999
+anchor_bottom = 1.0
+offset_right = 0.151855
+offset_bottom = 1.0
+mouse_filter = 1
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+mouse_filter = 1
+script = ExtResource("1_wuoom")
+
+[node name="clue" parent="Panel" instance=ExtResource("2_6omdc")]
+position = Vector2(336, 104)
+
+[node name="Sprite2D" parent="Panel/clue" index="0"]
+texture = ExtResource("3_7ub54")
+
+[node name="CollisionPolygon2D" parent="Panel/clue" index="1"]
+polygon = PackedVector2Array(-279, -68, 277, -68, 278, 68, -278, 67)
+
+[node name="clue2" parent="Panel" instance=ExtResource("2_6omdc")]
+position = Vector2(623, 136)
+
+[node name="Sprite2D" parent="Panel/clue2" index="0"]
+position = Vector2(213, 17)
+texture = ExtResource("4_4i8nu")
+
+[node name="CollisionPolygon2D" parent="Panel/clue2" index="1"]
+polygon = PackedVector2Array(152, -43, 274, -45, 274, 78, 152, 80)
+
+[node name="menu" type="HBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 40.0
+grow_horizontal = 0
+
+[node name="Journal" type="Button" parent="Panel/menu"]
+layout_mode = 2
+text = "Journal"
+
+[editable path="Panel/clue"]
+[editable path="Panel/clue2"]
